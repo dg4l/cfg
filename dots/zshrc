@@ -2,7 +2,19 @@ PROMPT='[%n@%m] %~ $ '
 unsetopt AUTO_CD
 alias neofetch="fastfetch"
 alias ls="ls --color=auto -a"
+alias grep="grep --color=always"
+alias less="less -R"
 alias xc="xclip -selection clipboard"
 autoload -Uz compinit
+zstyle ':completion:*' menu select
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 compinit
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
+export GOPATH=$HOME/go/bin
+export PATH=$PATH:$GOPATH
+export EDITOR=nvim
+bindkey -e
+bindkey "^[[1;5C" forward-word
+bindkey "^[[1;5D" backward-word
+bindkey '\e[1;3D' backward-word
+bindkey '\e[1;3C' forward-word
