@@ -10,8 +10,10 @@ zstyle ':completion:*' menu select
 zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 compinit
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-export GOPATH=$HOME/go/bin
-export PATH=$PATH:$GOPATH
+if which go > /dev/null 2>&1; then
+    export GOPATH="$(go env GOPATH)"
+    export PATH=$PATH:$GOPATH
+fi
 export EDITOR=nvim
 bindkey -e
 bindkey "^[[1;5C" forward-word
