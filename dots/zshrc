@@ -11,7 +11,7 @@ zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
 compinit
 source /usr/share/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
 if which go > /dev/null 2>&1; then
-    export GOPATH="$(go env GOPATH)"
+    export GOPATH="$(go env GOPATH)/bin"
     export PATH=$PATH:$GOPATH
 fi
 export EDITOR=nvim
